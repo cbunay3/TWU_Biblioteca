@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d17569a4-3b41-43ba-a22b-05fbf815e502" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/Option.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" afterDir="false" />
