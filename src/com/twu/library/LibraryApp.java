@@ -1,14 +1,24 @@
 package com.twu.library;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.twu.library.Option.LIST_OF_BOOKS;
+
 public class LibraryApp {
 
+    private static Library library;
+    private static BufferedReader bufferedReader;
+
     public static void main(String[] args) {
-        Library library = new Library(books(), System.out);
+        library = new Library(books(), System.out);
+        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
         library.viewWelcomeMessage();
-        library.listBooks();
+        menu();
     }
 
     private static List<Book> books(){
@@ -18,4 +28,47 @@ public class LibraryApp {
         books.add(new Book("The Agile Samurai","Jonathan Rasmusson", 2010));
         return books;
     }
+
+    private static void menu(){
+        System.out.println("\n  Menu");
+        System.out.println("1.List of Books");
+        System.out.println("Enter an option...");
+        Integer option = enterOption();
+        while (isValidOption(option)) {
+            showOption(option);
+            menu();
+        }
+    }
+
+    private static void showOption(Integer option) {
+       if (option == LIST_OF_BOOKS.code()){
+            library.listBooks();
+            return;
+       }
+       else{
+           System.out.println("Invalid Option Selected");
+       }
+    }
+
+    private static boolean isValidOption(Integer option){
+        if (option !=0)
+            return true;
+        return false;
+    }
+
+    private static Integer enterOption(){
+        String option = readLine();
+        return Integer.parseInt(option);
+    }
+
+    private static String readLine() {
+        String option = null;
+        try {
+            option = bufferedReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return option;
+    }
+
 }
