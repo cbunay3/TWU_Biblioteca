@@ -1,74 +1,62 @@
 package com.twu.library;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static com.twu.library.Option.LIST_OF_BOOKS;
+import static com.twu.library.Option.QUIT;
 
 public class LibraryApp {
 
     private static Library library;
-    private static BufferedReader bufferedReader;
 
     public static void main(String[] args) {
         library = new Library(books(), System.out);
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         library.viewWelcomeMessage();
         menu();
     }
 
-    private static List<Book> books(){
+    private static List<Book> books() {
         List<Book> books = new ArrayList<>();
-        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
-        books.add(new Book("The Agile Samurai","Jonathan Rasmusson", 2010));
+        books.add(new Book("The Agile Samurai", "Jonathan Rasmusson", 2010));
         return books;
     }
 
-    private static void menu(){
-        System.out.println("\n  Menu");
-        System.out.println("1.List of Books");
-        System.out.println("Enter an option...");
-        Integer option = enterOption();
-        while (isValidOption(option)) {
+    private static void menu() {
+        Integer option = null;
+        do {
+            System.out.println("\n  Menu");
+            System.out.println("1.List of Books");
+            System.out.println("9.Quit Application");
+            System.out.println("Enter an option...");
+            option = enterOption();
             showOption(option);
-            menu();
-        }
+        } while (isNotQuitOption(option));
     }
 
-    private static void showOption(Integer option) {
-       if (option == LIST_OF_BOOKS.code()){
-            library.listBooks();
-            return;
-       }
-       else{
-           System.out.println("Please Select a valid option!");
-       }
-    }
-
-    private static boolean isValidOption(Integer option){
-        if (option !=0)
+    private static boolean isNotQuitOption(Integer option) {
+        if (!option.equals(QUIT.code())) {
             return true;
+        }
         return false;
     }
 
-    private static Integer enterOption(){
-        String option = readLine();
-        return Integer.parseInt(option);
+    private static void showOption(Integer option) {
+        if (option == LIST_OF_BOOKS.code()) {
+            library.listBooks();
+        } else if (isNotQuitOption(option)) {
+            System.out.println("Please Select a valid option!");
+        }
     }
 
-    private static String readLine() {
-        String option = null;
-        try {
-            option = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private static Integer enterOption() {
+        Integer option;
+        Scanner s = new Scanner(System.in);
+        option = s.nextInt();
         return option;
     }
-
 }

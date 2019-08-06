@@ -1,7 +1,9 @@
 package com.twu.library;
 
 enum Option {
-    LIST_OF_BOOKS(1);
+    LIST_OF_BOOKS(1),
+    QUIT(9);
+
 
     private final Integer code;
 
@@ -10,6 +12,6 @@ enum Option {
     }
 
     public Integer code() {
-        return 1;
+        return code;
     }
 }
