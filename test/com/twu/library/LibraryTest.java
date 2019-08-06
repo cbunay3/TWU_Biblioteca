@@ -16,12 +16,14 @@ public class LibraryTest {
     private List<Book> books;
     private PrintStream printStream;
     private Library library;
+    private String columnSeparator;
 
     @Before
     public void setUp() {
         books = new ArrayList<>();
         printStream = mock(PrintStream.class);
         library = new Library(books, printStream);
+        columnSeparator = " | ";
     }
 
     @Test
@@ -46,7 +48,7 @@ public class LibraryTest {
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java,  Kathy Sierra,  2003\n");
+        verify(printStream).println("Head First Java" +columnSeparator+ "Kathy Sierra" +columnSeparator+ "2003\n");
     }
 
     @Test
@@ -56,6 +58,6 @@ public class LibraryTest {
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java,  Kathy Sierra,  2003\nClean Code,  Robert C. Martin,  2008\n");
+        verify(printStream).println("Head First Java" +columnSeparator+ "Kathy Sierra" +columnSeparator+ "2003\nClean Code" +columnSeparator+ "Robert C. Martin" +columnSeparator+ "2008\n");
     }
 }

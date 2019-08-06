@@ -18,9 +18,10 @@ public class Library {
     }
 
     public void listBooks() {
+        String columnSeparator = " | ";
         String bookList = "";
         for (Book book : books) {
-            bookList += book.getTitle() + ",  " + book.getAuthor() +  ",  " + book.getYear().toString() + "\n";
+            bookList += book.getTitle() + columnSeparator + book.getAuthor() +  columnSeparator + book.getYear().toString() + "\n";
         }
         printStream.println(bookList);
     }
