@@ -20,7 +20,7 @@ public class Library {
     public void listBooks() {
         String bookList = "";
         for (Book book : books) {
-            bookList += book.getTitle() + "\n";
+            bookList += book.getTitle() + ",  " + book.getAuthor() +  ",  " + book.getYear().toString() + "\n";
         }
         printStream.println(bookList);
     }

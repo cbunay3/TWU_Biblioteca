@@ -1,7 +1,6 @@
 package com.twu.library;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -42,21 +41,21 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldPrintBookTitleWhenThereIsOneBook() {
-        books.add(new Book("Head First Java"));
+    public void shouldPrintBookInfoWhenThereIsOneBook() {
+        books.add(new Book("Head First Java","Kathy Sierra",2003));
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java\n");
+        verify(printStream).println("Head First Java,  Kathy Sierra,  2003\n");
     }
 
     @Test
-    public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() throws IOException {
-        books.add(new Book("Head First Java"));
-        books.add(new Book("Clean Code"));
+    public void shouldPrintBothBookInfoWhenThereAreTwoBooks() throws IOException {
+        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java\nClean Code\n");
+        verify(printStream).println("Head First Java,  Kathy Sierra,  2003\nClean Code,  Robert C. Martin,  2008\n");
     }
 }
