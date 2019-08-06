@@ -1,8 +1,27 @@
 package com.twu.library;
 
+import java.io.PrintStream;
+import java.util.List;
+
 public class Library {
 
-    public String getWelcomeMessage(){
-        return "Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!";
+    private List<Book> books;
+    private PrintStream printStream;
+
+    public Library(List<Book> books, PrintStream printStream) {
+        this.books = books;
+        this.printStream = printStream;
+    }
+
+    public void viewWelcomeMessage(){
+        printStream.println("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!");
+    }
+
+    public void listBooks() {
+        String bookList = "";
+        for (Book book : books) {
+            bookList += book.getTitle() + "\n";
+        }
+        printStream.println(bookList);
     }
 }
