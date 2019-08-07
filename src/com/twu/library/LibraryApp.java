@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.twu.library.Option.LIST_OF_BOOKS;
-import static com.twu.library.Option.QUIT;
+import static com.twu.library.MenuOption.LIST_OF_BOOKS;
+import static com.twu.library.MenuOption.QUIT;
 
 public class LibraryApp {
 
@@ -13,7 +13,6 @@ public class LibraryApp {
 
     public static void main(String[] args) {
         library = new Library(books(), System.out);
-
         library.viewWelcomeMessage();
         menu();
     }

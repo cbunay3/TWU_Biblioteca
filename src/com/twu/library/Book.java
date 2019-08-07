@@ -5,11 +5,13 @@ public class Book {
     private String title;
     private String author;
     private Integer year;
+    private  Boolean available;
 
     public Book(String title, String author, Integer year) {
         this.title = title;
         this.author = author;
         this.year = year;
+        this.available = true;
     }
 
     public String getTitle() {
@@ -23,4 +25,7 @@ public class Book {
     public Integer getYear() {
         return year;
     }
+
+    public Boolean isAvailable() {return available;}
+
 }
