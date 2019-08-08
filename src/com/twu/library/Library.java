@@ -34,7 +34,7 @@ public class Library {
     public void checkoutBook(String title) {
         Book book = searchBook(title);
         if (book != null) {
-             book.checkout();
+            book.checkout();
         }
     }
 
@@ -46,6 +46,4 @@ public class Library {
         }
         return null;
     }
-
-
 }
