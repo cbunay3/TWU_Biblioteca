@@ -32,7 +32,7 @@ public class LibraryApp {
             System.out.println("\n  Menu");
             System.out.println("1.List of Books");
             System.out.println("2.Checkout a Book");
-            System.out.println("3.Checkout a Book");
+            System.out.println("3.Return a Book");
             System.out.println("9.Quit Application");
             System.out.println("Enter an option...");
             option = enterOption();
