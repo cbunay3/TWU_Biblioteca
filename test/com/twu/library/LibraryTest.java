@@ -94,10 +94,11 @@ public class LibraryTest {
     }
 
     @Test
-    public void shoulPrintBorrowedBook() throws IOException {
+    public void shoulPrintReturnedBorrowedBook() throws IOException {
         books.add(new Book("Head First Java", "Kathy Sierra", 2003));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
 
+        library.checkoutBook("Clean Code");
         library.returnBook("Clean Code");
         library.listBooks();
 
@@ -109,9 +110,20 @@ public class LibraryTest {
         books.add(new Book("Head First Java", "Kathy Sierra", 2003));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
 
+        library.checkoutBook("Clean Code");
         library.returnBook("Clean Code");
 
         verify(printStream).println("Thank you for returning the book");
+    }
+
+    @Test
+    public void shouldPrintUnsuccessfulMessageOnReturnAInvalidBook()  {
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+
+        library.returnBook("Clean C");
+
+        verify(printStream).println("This is not valid book to return");
     }
 
 }

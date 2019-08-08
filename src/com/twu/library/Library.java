@@ -56,5 +56,8 @@ public class Library {
             book.setAvailable(true);
             printStream.println("Thank you for returning the book");
         }
+        else {
+            printStream.println("This is not valid book to return");
+        }
     }
 }
