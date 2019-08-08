@@ -45,31 +45,41 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintBookInfoWhenThereIsOneBook() {
-        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java" +delimiter+ "Kathy Sierra" +delimiter+ "2003\n");
+        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\n");
     }
 
     @Test
     public void shouldPrintBothBookInfoWhenThereAreTwoBooks() throws IOException {
-        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java" +delimiter+ "Kathy Sierra" +delimiter+ "2003\nClean Code" +delimiter+ "Robert C. Martin" +delimiter+ "2008\n");
+        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\nClean Code" + delimiter + "Robert C. Martin" + delimiter + "2008\n");
     }
 
     @Test
     public void shouldNotPrintBorrowedBook() throws IOException {
-        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
 
         library.checkoutBook("Clean Code");
         library.listBooks();
 
-        verify(printStream).println("Head First Java" +delimiter+ "Kathy Sierra" +delimiter+ "2003\n");
+        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\n");
+    }
+
+    @Test
+    public void shouldPrintSuccessMessageOnCheckoutOfABook() throws IOException {
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+
+        library.checkoutBook("Clean Code");
+
+        verify(printStream).println("Thank you! Enjoy the book");
     }
 }

@@ -35,6 +35,7 @@ public class Library {
         Book book = searchBook(title);
         if (book != null) {
             book.checkout();
+            printStream.println("Thank you! Enjoy the book");
         }
     }
 
