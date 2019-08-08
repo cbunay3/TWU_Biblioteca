@@ -1,6 +1,7 @@
 package com.twu.library;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,14 +17,14 @@ public class LibraryTest {
     private List<Book> books;
     private PrintStream printStream;
     private Library library;
-    private String columnSeparator;
+    private String delimiter;
 
     @Before
     public void setUp() {
         books = new ArrayList<>();
         printStream = mock(PrintStream.class);
         library = new Library(books, printStream);
-        columnSeparator = " | ";
+        delimiter = " | ";
     }
 
     @Test
@@ -48,7 +49,7 @@ public class LibraryTest {
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java" +columnSeparator+ "Kathy Sierra" +columnSeparator+ "2003\n");
+        verify(printStream).println("Head First Java" +delimiter+ "Kathy Sierra" +delimiter+ "2003\n");
     }
 
     @Test
@@ -58,6 +59,20 @@ public class LibraryTest {
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java" +columnSeparator+ "Kathy Sierra" +columnSeparator+ "2003\nClean Code" +columnSeparator+ "Robert C. Martin" +columnSeparator+ "2008\n");
+        verify(printStream).println("Head First Java" +delimiter+ "Kathy Sierra" +delimiter+ "2003\nClean Code" +delimiter+ "Robert C. Martin" +delimiter+ "2008\n");
+    }
+
+
+
+    @Test
+//    @Ignore
+    public void shouldNotPrintBorrowedBook() throws IOException {
+        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+
+        library.checkoutBook("Clean Code");
+        library.listBooks();
+
+        verify(printStream).println("Head First Java" +delimiter+ "Kathy Sierra" +delimiter+ "2003\n");
     }
 }

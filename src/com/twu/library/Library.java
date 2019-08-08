@@ -13,7 +13,7 @@ public class Library {
         this.printStream = printStream;
     }
 
-    public void viewWelcomeMessage(){
+    public void viewWelcomeMessage() {
         printStream.println("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!");
     }
 
@@ -21,8 +21,31 @@ public class Library {
         String columnSeparator = " | ";
         String bookList = "";
         for (Book book : books) {
-            bookList += book.getTitle() + columnSeparator + book.getAuthor() +  columnSeparator + book.getYear().toString() + "\n";
+            if (book.isAvailable())
+                bookList += book.getTitle() + columnSeparator + book.getAuthor() + columnSeparator + book.getYear().toString() + "\n";
         }
         printStream.println(bookList);
     }
+
+    public List<Book> getListBooks() {
+        return books;
+    }
+
+    public void checkoutBook(String title) {
+        Book book = searchBook(title);
+        if (book != null) {
+             book.checkout();
+        }
+    }
+
+    public Book searchBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+
 }
