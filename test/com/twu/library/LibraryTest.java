@@ -82,4 +82,15 @@ public class LibraryTest {
 
         verify(printStream).println("Thank you! Enjoy the book");
     }
+
+    @Test
+    public void shouldPrintUnsuccessfulMessageOnCheckoutOfABook() throws IOException {
+        books.add(new Book("Head First Java","Kathy Sierra",2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+
+        library.checkoutBook("Clean C");
+
+        verify(printStream).println("Sorry, that book is not available");
+    }
+
 }

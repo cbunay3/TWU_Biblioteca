@@ -36,6 +36,8 @@ public class Library {
         if (book != null) {
             book.checkout();
             printStream.println("Thank you! Enjoy the book");
+        } else {
+            printStream.println("Sorry, that book is not available");
         }
     }
 
