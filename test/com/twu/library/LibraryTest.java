@@ -93,4 +93,16 @@ public class LibraryTest {
         verify(printStream).println("Sorry, that book is not available");
     }
 
+    @Test
+    public void shoulPrintBorrowedBook() throws IOException {
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+
+        library.returnBook("Clean Code");
+        library.listBooks();
+
+        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\nClean Code" + delimiter + "Robert C. Martin" + delimiter + "2008\n");
+    }
+
+
 }

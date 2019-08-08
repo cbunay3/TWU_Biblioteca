@@ -1,6 +1,6 @@
 package com.twu.library;
 
-public class Book implements Actions {
+public class Book {
 
     private String title;
     private String author;
@@ -28,8 +28,6 @@ public class Book implements Actions {
 
     public Boolean isAvailable() {return available;}
 
-    @Override
-    public void checkout() {
-        available = false;
-    }
+    public void setAvailable(boolean available) {this.available = available;}
+
 }

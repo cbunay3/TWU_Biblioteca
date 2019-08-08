@@ -34,7 +34,7 @@ public class Library {
     public void checkoutBook(String title) {
         Book book = searchBook(title);
         if (book != null) {
-            book.checkout();
+            book.setAvailable(false);
             printStream.println("Thank you! Enjoy the book");
         } else {
             printStream.println("Sorry, that book is not available");
@@ -48,5 +48,12 @@ public class Library {
             }
         }
         return null;
+    }
+
+    public void returnBook(String title) {
+        Book book = searchBook(title);
+        if (book != null) {
+            book.setAvailable(true);
+        }
     }
 }

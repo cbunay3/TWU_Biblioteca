@@ -32,6 +32,7 @@ public class LibraryApp {
             System.out.println("\n  Menu");
             System.out.println("1.List of Books");
             System.out.println("2.Checkout a Book");
+            System.out.println("3.Checkout a Book");
             System.out.println("9.Quit Application");
             System.out.println("Enter an option...");
             option = enterOption();
@@ -46,6 +47,9 @@ public class LibraryApp {
         } else if (option == CHECKOUT_A_BOOK.code()) {
             String bookTitle = enterBookTitle();
             library.checkoutBook(bookTitle);
+        }  else if (option == RETURN_A_BOOK.code() ) {
+            String bookTitle = enterBookTitle();
+            library.returnBook(bookTitle);
         } else if (isNotQuitOption(option)) {
             System.out.println("Please select a valid option!");
         }
