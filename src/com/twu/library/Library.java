@@ -54,6 +54,7 @@ public class Library {
         Book book = searchBook(title);
         if (book != null) {
             book.setAvailable(true);
+            printStream.println("Thank you for returning the book");
         }
     }
 }
