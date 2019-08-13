@@ -1,7 +1,6 @@
 package com.twu.library;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -9,121 +8,118 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
 import static org.mockito.Mockito.*;
 
 public class LibraryTest {
 
-    private List<Book> books;
-    private PrintStream printStream;
     private Library library;
-    private String delimiter;
+    private PrintStream mockPrintStream;
 
     @Before
     public void setUp() {
-        books = new ArrayList<>();
-        printStream = mock(PrintStream.class);
-        library = new Library(books, printStream);
-        delimiter = " | ";
+        mockPrintStream = mock(PrintStream.class);
+    }
+
+
+    public List<Book> books() {
+        List<Book> books = new ArrayList<>();
+        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+        return books;
+    }
+
+    public String expectedBooksInfo() {
+        StringBuilder booksInfo = new StringBuilder();
+        books().forEach(book -> booksInfo.append(book.getInfo()));
+        return booksInfo.toString();
+    }
+
+    public String expectedBookInfo() {
+        return books().get(0).getInfo();
     }
 
     @Test
     public void shouldPrintWelcomeMessage() {
-        String expectedWelcomeMessage = "Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!";
+        library = new Library(new ArrayList<>(), mockPrintStream);
 
-        library.viewWelcomeMessage();
+        library.showWelcomeMessage();
 
-        verify(printStream).println(expectedWelcomeMessage);
+        verify(mockPrintStream).print("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!");
     }
 
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-        library.listBooks();
-
-        verify(printStream).println("");
-    }
-
-    @Test
-    public void shouldPrintBookInfoWhenThereIsOneBook() {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        library = new Library(new ArrayList<>(), mockPrintStream);
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\n");
+        verify(mockPrintStream).print("");
     }
 
     @Test
     public void shouldPrintBothBookInfoWhenThereAreTwoBooks() throws IOException {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+        library = new Library(books(), mockPrintStream);
 
         library.listBooks();
 
-        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\nClean Code" + delimiter + "Robert C. Martin" + delimiter + "2008\n");
+        verify(mockPrintStream).print(expectedBooksInfo());
     }
 
     @Test
-    public void shouldNotPrintBorrowedBook() throws IOException {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+    public void shouldNotPrintBorrowedBookInfo() throws IOException {
+        library = new Library(books(), mockPrintStream);
 
         library.checkoutBook("Clean Code");
         library.listBooks();
 
-        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\n");
+        verify(mockPrintStream).print(expectedBookInfo());
     }
 
     @Test
     public void shouldPrintSuccessMessageOnCheckoutOfABook() throws IOException {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+        library = new Library(books(), mockPrintStream);
 
         library.checkoutBook("Clean Code");
 
-        verify(printStream).println("Thank you! Enjoy the book");
+        verify(mockPrintStream).println("Thank you! Enjoy the book");
     }
 
     @Test
-    public void shouldPrintUnsuccessfulMessageOnCheckoutOfABook() throws IOException {
-        books.add(new Book("Head First Java","Kathy Sierra",2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+    public void shouldPrintUnsuccessfulMessageOnCheckoutAInvalidOfABook() throws IOException {
+        library = new Library(books(), mockPrintStream);
 
-        library.checkoutBook("Clean C");
+        library.checkoutBook("Pinocchio");
 
-        verify(printStream).println("Sorry, that book is not available");
+        verify(mockPrintStream).println("Sorry, that book is not available");
     }
 
     @Test
-    public void shoulPrintReturnedBorrowedBook() throws IOException {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+    public void shouldPrintReturnedBook() throws IOException {
+        library = new Library(books(), mockPrintStream);
 
         library.checkoutBook("Clean Code");
         library.returnBook("Clean Code");
         library.listBooks();
 
-        verify(printStream).println("Head First Java" + delimiter + "Kathy Sierra" + delimiter + "2003\nClean Code" + delimiter + "Robert C. Martin" + delimiter + "2008\n");
+        verify(mockPrintStream).print(expectedBooksInfo());
     }
 
     @Test
-    public void shouldPrintSuccessMessageOnReturnAbook()  {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+    public void shouldPrintSuccessMessageOnReturnABook() {
+        library = new Library(books(), mockPrintStream);
 
         library.checkoutBook("Clean Code");
         library.returnBook("Clean Code");
 
-        verify(printStream).println("Thank you for returning the book");
+        verify(mockPrintStream).println("Thank you for returning the book");
     }
 
     @Test
-    public void shouldPrintUnsuccessfulMessageOnReturnAInvalidBook()  {
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
+    public void shouldPrintUnsuccessfulMessageOnReturnAInvalidBook() {
+        library = new Library(books(), mockPrintStream);
 
-        library.returnBook("Clean C");
+        library.returnBook("Pinocchio");
 
-        verify(printStream).println("This is not valid book to return");
+        verify(mockPrintStream).println("This is not a valid book to return");
     }
-
 }

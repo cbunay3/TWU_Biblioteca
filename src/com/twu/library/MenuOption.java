@@ -1,7 +1,7 @@
 package com.twu.library;
 
 enum MenuOption {
-    LIST_OF_BOOKS(1),
+    LIST_BOOKS(1),
     CHECKOUT_A_BOOK(2),
     RETURN_A_BOOK(3),
     QUIT(9);

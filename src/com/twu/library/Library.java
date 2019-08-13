@@ -1,63 +1,58 @@
 package com.twu.library;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
 
     private List<Book> books;
+    private List<Book> borrowedBooks;
     private PrintStream printStream;
+
 
     public Library(List<Book> books, PrintStream printStream) {
         this.books = books;
         this.printStream = printStream;
+        this.borrowedBooks = new ArrayList<>();
     }
 
-    public void viewWelcomeMessage() {
-        printStream.println("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!");
+    public void showWelcomeMessage() {
+        printStream.print("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!");
     }
 
     public void listBooks() {
-        String columnSeparator = " | ";
-        String bookList = "";
-        for (Book book : books) {
-            if (book.isAvailable())
-                bookList += book.getTitle() + columnSeparator + book.getAuthor() + columnSeparator + book.getYear().toString() + "\n";
-        }
-        printStream.println(bookList);
-    }
-
-    public List<Book> getListBooks() {
-        return books;
+        StringBuilder bookList = new StringBuilder();
+        books.forEach(book -> bookList.append(book.getInfo()));
+        printStream.print(bookList.toString());
     }
 
     public void checkoutBook(String title) {
-        Book book = searchBook(title);
+        Book book = searchBook(title, books);
         if (book != null) {
-            book.setAvailable(false);
+            borrowedBooks.add(book);
+            books.remove(book);
             printStream.println("Thank you! Enjoy the book");
         } else {
             printStream.println("Sorry, that book is not available");
         }
     }
 
-    public Book searchBook(String title) {
-        for (Book book : books) {
-            if (book.getTitle().equals(title)) {
-                return book;
-            }
+    public void returnBook(String title) {
+        Book book = searchBook(title, borrowedBooks);
+        if (book != null) {
+            books.add(book);
+            borrowedBooks.remove(book);
+            printStream.println("Thank you for returning the book");
+        } else {
+            printStream.println("This is not a valid book to return");
         }
-        return null;
     }
 
-    public void returnBook(String title) {
-        Book book = searchBook(title);
-        if (book != null) {
-            book.setAvailable(true);
-            printStream.println("Thank you for returning the book");
-        }
-        else {
-            printStream.println("This is not valid book to return");
-        }
+    public Book searchBook(String title, List<Book> books) {
+        return books.stream()
+                .filter(book -> book.getTitle().equals(title))
+                .findFirst()
+                .orElse(null);
     }
 }

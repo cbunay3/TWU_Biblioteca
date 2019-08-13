@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d17569a4-3b41-43ba-a22b-05fbf815e502" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Actions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/MenuOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/MenuOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/ExampleTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/Actions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/MenuOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/MenuOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/library/ExampleTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -34,14 +46,23 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+      <recent name="com.twu.library" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.twu.library" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -56,9 +77,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LibraryApp">
-    <configuration name="LibraryApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryApp" />
+  <component name="RunManager" selected="JUnit.LibraryServiceTest">
+    <configuration name="LibraryServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -66,11 +86,62 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.twu.library" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibraryTest.shoulPrintBorrowedBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryServiceTest.shouldPrintBooksInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.library" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryServiceTest" />
+      <option name="METHOD_NAME" value="shouldPrintBooksInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryServiceTest.shouldPrintSuccessMessageWhenUserCheckoutABook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.library" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryServiceTest" />
+      <option name="METHOD_NAME" value="shouldPrintSuccessMessageWhenUserCheckoutABook" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryServiceTest.shouldPrintSuccessMessageWhenUserReturnABook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.library" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryServiceTest" />
+      <option name="METHOD_NAME" value="shouldPrintSuccessMessageWhenUserReturnABook" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -80,56 +151,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.library" />
       <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shoulPrintBorrowedBook" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibraryTest.shouldPrintSuccessMessageOnReturnAbook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.library.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.library" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shouldPrintSuccessMessageOnReturnAbook" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibraryTest.shouldPrintUnsuccessfulMessageOnReturnAInvalidBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.library.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.library" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shouldPrintUnsuccessfulMessageOnReturnAInvalidBook" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibraryTest.shouldPrintUnsuccessfulMessageOnReturnAbook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.library.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.library" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shouldPrintUnsuccessfulMessageOnReturnAbook" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LibraryApp" />
-        <item itemvalue="JUnit.LibraryTest.shouldPrintUnsuccessfulMessageOnReturnAInvalidBook" />
-        <item itemvalue="JUnit.LibraryTest.shouldPrintUnsuccessfulMessageOnReturnAbook" />
-        <item itemvalue="JUnit.LibraryTest.shouldPrintSuccessMessageOnReturnAbook" />
-        <item itemvalue="JUnit.LibraryTest.shoulPrintBorrowedBook" />
+        <item itemvalue="JUnit.LibraryServiceTest" />
+        <item itemvalue="JUnit.LibraryServiceTest.shouldPrintSuccessMessageWhenUserReturnABook" />
+        <item itemvalue="JUnit.LibraryTest" />
+        <item itemvalue="JUnit.LibraryServiceTest.shouldPrintBooksInfo" />
+        <item itemvalue="JUnit.LibraryServiceTest.shouldPrintSuccessMessageWhenUserCheckoutABook" />
       </list>
     </recent_temporary>
   </component>
