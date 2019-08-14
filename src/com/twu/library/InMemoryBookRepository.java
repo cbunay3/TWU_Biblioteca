@@ -73,8 +73,10 @@ public class InMemoryBookRepository implements BookRepository {
     public void returnBookByTitle(String title){
         Book book = findCheckoutBook(title);
         if (book != null) {
+            Integer bookIndex = checkoutBooks.indexOf(book);
             books.add(book);
             checkoutBooks.remove(book);
+            checkoutUsers.remove(bookIndex);
             printStream.println("Thank you for returning the book");
         } else {
             printStream.println("This is not a valid book to return");

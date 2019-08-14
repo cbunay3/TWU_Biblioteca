@@ -10,6 +10,6 @@ public class LibraryApp {
         BookRepository bookRepository = new InMemoryBookRepository(System.out);
         MovieRepository movieRepository = new InMemoryMovieRepository(System.out);
         Library library = new Library(bookRepository,movieRepository,new BufferedReader(new InputStreamReader(System.in)));
-        library.showMenu();
+        library.authenticate();
     }
 }

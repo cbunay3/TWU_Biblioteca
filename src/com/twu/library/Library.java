@@ -29,6 +29,7 @@ public class Library {
             System.out.println("4.List Movies");
             System.out.println("5.Checkout a Movie");
             System.out.println("6.List checked out books");
+            System.out.println("7.My profile");
             System.out.println("9.Quit Application");
             System.out.println("Enter an option...");
             option = readLine();
@@ -62,6 +63,9 @@ public class Library {
         } else if (option.equals(BOOKS_CHECKED_OUT.code())) {
             System.out.println(String.format("\n| %-25s | %-25s |\n","LIBRO","RESERVADO POR"));
             bookRepository.listCheckoutBooks();
+        }else if (option.equals(MY_PROFILE.code())) {
+            System.out.println(String.format("\nMY INFORMATION\n"));
+            System.out.println(Session.getCurrentSession().currentUser.getInfo());
         }else if (isNotQuitOption(option)) {
             System.out.println("Please select a valid option!");
         }

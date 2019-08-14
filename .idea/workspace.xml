@@ -2,41 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d17569a4-3b41-43ba-a22b-05fbf815e502" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryBookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryMovieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/MovieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthenticationFailureException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthenticationRequiredException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthorizationDeniedAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthorizationFailedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/twu/library/AuthenticationServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/twu/library/InMemoryBookRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/twu/library/InMemoryMovieRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/twu/library/InMemoryUserRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryMenu.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryOption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryMenuTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/library/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/InMemoryBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryBookRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryMenu.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/library/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryMenuTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/User.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

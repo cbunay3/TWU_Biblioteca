@@ -20,4 +20,8 @@ public class User {
         return name;
     }
 
+    public String getInfo(){
+        return String.format("Name: %s\nEmail: %s\nPhone Number: %s\n", name, email,phoneNumber);
+    }
+
 }

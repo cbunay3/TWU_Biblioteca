@@ -7,6 +7,7 @@ enum LibraryOption {
     LIST_MOVIES("4"),
     CHECKOUT_MOVIE("5"),
     BOOKS_CHECKED_OUT("6"),
+    MY_PROFILE("7"),
     QUIT("9");
 
     private final String code;
