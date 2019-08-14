@@ -2,27 +2,24 @@ package com.twu.library;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintStream;
 
-import static com.twu.library.MenuOption.*;
+import static com.twu.library.LibraryOption.*;
 
-public class LibraryService {
+public class LibraryMenu {
 
     private Library library;
     private BufferedReader bufferedReader;
 
 
-    LibraryService(Library library, BufferedReader bufferedReader) {
-        this.library = library;
+    LibraryMenu(PrintStream printStream, BufferedReader bufferedReader) {
+        this.library = new Library(printStream);
         this.bufferedReader = bufferedReader;
     }
 
-    public void begin(){
+    public void show() {
         library.showWelcomeMessage();
-        menu();
-    }
-
-    private void menu() {
-        Integer option = null;
+        String option = null;
         do {
             System.out.println("\n  Menu");
             System.out.println("1.List of Books");
@@ -35,14 +32,14 @@ public class LibraryService {
         } while (isNotQuitOption(option));
     }
 
-    public void showOption(Integer option) {
-        if (option == LIST_BOOKS.code()) {
+    private void showOption(String option) {
+        if (option.equals(LIST_BOOKS.code())) {
             System.out.print(String.format("\n  %-25s   %-25s   %-17s\n\n", "TITLE", "AUTHOR", "PUBLICATION YEAR"));
             library.listBooks();
-        } else if (option == CHECKOUT_A_BOOK.code()) {
+        } else if (option.equals(CHECKOUT_BOOK.code())) {
             String bookTitle = enterBookTitle();
             library.checkoutBook(bookTitle);
-        } else if (option == RETURN_A_BOOK.code()) {
+        } else if (option.equals(RETURN_BOOK.code())) {
             String bookTitle = enterBookTitle();
             library.returnBook(bookTitle);
         } else if (isNotQuitOption(option)) {
@@ -50,20 +47,20 @@ public class LibraryService {
         }
     }
 
-    private boolean isNotQuitOption(Integer option) {
+    private boolean isNotQuitOption(String option) {
         return !option.equals(QUIT.code());
     }
 
-    public Integer enterOption() {
+    private String enterOption() {
         try {
-            return  Integer.parseInt(bufferedReader.readLine());
+            return bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public String enterBookTitle() {
+    private String enterBookTitle() {
         System.out.println("Enter book's title:");
         try {
             return bufferedReader.readLine();

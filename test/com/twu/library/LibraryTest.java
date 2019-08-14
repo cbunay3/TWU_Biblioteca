@@ -21,26 +21,45 @@ public class LibraryTest {
     }
 
 
-    public List<Book> books() {
+    public List<Book> createBooks() {
         List<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        books.add(new Book("The Agile Samurai", "Jonathan Rasmusson", 2010));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
         return books;
     }
 
+    public List<Movie> createMovies() {
+        List<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("The Lion King", 2019, "Jon Favreau", "9"));
+        movies.add(new Movie("Jumper", 2008, "Doug Liman", "5"));
+        movies.add(new Movie("The Avengers", 2012, "Joss Whedon", "9"));
+        return movies;
+    }
+
     public String expectedBooksInfo() {
         StringBuilder booksInfo = new StringBuilder();
-        books().forEach(book -> booksInfo.append(book.getInfo()));
+        createBooks().forEach(book -> booksInfo.append(book.getInfo()));
         return booksInfo.toString();
     }
 
+    public String expectedMoviesInfo() {
+        StringBuilder moviesInfo = new StringBuilder();
+        createMovies().forEach(movie -> moviesInfo.append(movie.getInfo()));
+        return moviesInfo.toString();
+    }
+
     public String expectedBookInfo() {
-        return books().get(0).getInfo();
+        return createBooks().remove(0).getInfo();
+    }
+
+    public String expectedMovieInfo() {
+        return createMovies().remove(0).getInfo();
     }
 
     @Test
     public void shouldPrintWelcomeMessage() {
-        library = new Library(new ArrayList<>(), mockPrintStream);
+        library = new Library(mockPrintStream);
 
         library.showWelcomeMessage();
 
@@ -49,7 +68,8 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-        library = new Library(new ArrayList<>(), mockPrintStream);
+        library = new Library(mockPrintStream);
+        library.setBooks(new ArrayList<>());
 
         library.listBooks();
 
@@ -57,8 +77,8 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldPrintBothBookInfoWhenThereAreTwoBooks() throws IOException {
-        library = new Library(books(), mockPrintStream);
+    public void shouldPrintBooksInfoWhenThereAreMoreThanOneBooks() throws IOException {
+        library = new Library(mockPrintStream);
 
         library.listBooks();
 
@@ -66,10 +86,12 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldNotPrintBorrowedBookInfo() throws IOException {
-        library = new Library(books(), mockPrintStream);
+    public void shouldNotPrintBorrowedBooksInfo() throws IOException {
+        library = new Library(mockPrintStream);
 
         library.checkoutBook("Clean Code");
+        library.checkoutBook("The Agile Samurai");
+
         library.listBooks();
 
         verify(mockPrintStream).print(expectedBookInfo());
@@ -77,7 +99,7 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintSuccessMessageOnCheckoutOfABook() throws IOException {
-        library = new Library(books(), mockPrintStream);
+        library = new Library(mockPrintStream);
 
         library.checkoutBook("Clean Code");
 
@@ -86,7 +108,7 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintUnsuccessfulMessageOnCheckoutAInvalidOfABook() throws IOException {
-        library = new Library(books(), mockPrintStream);
+        library = new Library(mockPrintStream);
 
         library.checkoutBook("Pinocchio");
 
@@ -95,7 +117,7 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintReturnedBook() throws IOException {
-        library = new Library(books(), mockPrintStream);
+        library = new Library(mockPrintStream);
 
         library.checkoutBook("Clean Code");
         library.returnBook("Clean Code");
@@ -106,7 +128,7 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintSuccessMessageOnReturnABook() {
-        library = new Library(books(), mockPrintStream);
+        library = new Library(mockPrintStream);
 
         library.checkoutBook("Clean Code");
         library.returnBook("Clean Code");
@@ -116,10 +138,31 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintUnsuccessfulMessageOnReturnAInvalidBook() {
-        library = new Library(books(), mockPrintStream);
+        library = new Library(mockPrintStream);
 
         library.returnBook("Pinocchio");
 
         verify(mockPrintStream).println("This is not a valid book to return");
     }
+
+    @Test
+    public void shouldPrintAvailableBooks() {
+        library = new Library(mockPrintStream);
+
+        library.listMovies();
+
+        verify(mockPrintStream).print(expectedMoviesInfo());
+    }
+
+    @Test
+    public void shouldNotPrintNothingWhenThereIsNoMovies() {
+        library = new Library(mockPrintStream);
+        library.setMovies(new ArrayList<>());
+
+        library.listMovies();
+
+        verify(mockPrintStream).print("");
+    }
+
+
 }

@@ -9,13 +9,11 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import static com.twu.library.MenuOption.*;
+import static com.twu.library.LibraryOption.*;
 import static org.mockito.Mockito.*;
 
-public class LibraryServiceTest {
-    private Library library;
-    private LibraryService libraryService;
+public class LibraryMenuTest {
+    private LibraryMenu libraryMenu;
     private PrintStream mockPrintStream;
     private BufferedReader mockBufferedReader;
 
@@ -24,68 +22,68 @@ public class LibraryServiceTest {
     public void setUp() {
         mockPrintStream = mock(PrintStream.class);
         mockBufferedReader = mock(BufferedReader.class);
-        library = new Library(books(), mockPrintStream);
     }
 
-    public List<Book> books() {
+    public List<Book> createBooks() {
         List<Book> books = new ArrayList<>();
         books.add(new Book("Head First Java", "Kathy Sierra", 2003));
+        books.add(new Book("The Agile Samurai", "Jonathan Rasmusson", 2010));
         books.add(new Book("Clean Code", "Robert C. Martin", 2008));
         return books;
     }
 
     public String expectedBooksInfo() {
         StringBuilder booksInfo = new StringBuilder();
-        books().forEach(book -> booksInfo.append(book.getInfo()));
+        createBooks().forEach(book -> booksInfo.append(book.getInfo()));
         return booksInfo.toString();
     }
 
     @Test
-    public void shouldPrintBooksInfoWhenUserListBooks() {
-        libraryService = new LibraryService(library, mockBufferedReader);
+    public void shouldPrintBooksInfoWhenUserListBooks() throws IOException {
+        libraryMenu = new LibraryMenu(mockPrintStream, mockBufferedReader);
+        when(mockBufferedReader.readLine()).thenReturn(LIST_BOOKS.code(), QUIT.code());
 
-        libraryService.showOption(LIST_BOOKS.code());
+        libraryMenu.show();
 
         verify(mockPrintStream).print(expectedBooksInfo());
     }
 
     @Test
     public void shouldPrintSuccessMessageWhenUserCheckoutABook() throws IOException {
-        libraryService = new LibraryService(library, mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn("Clean Code");
+        libraryMenu = new LibraryMenu(mockPrintStream, mockBufferedReader);
+        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_BOOK.code(),"Clean Code", QUIT.code());
 
-        libraryService.showOption(CHECKOUT_A_BOOK.code());
+        libraryMenu.show();
 
         verify(mockPrintStream).println("Thank you! Enjoy the book");
     }
 
     @Test
     public void shouldPrintUnsuccessfulMessageWhenUserTryToCheckoutAInvalidBook() throws IOException {
-        libraryService = new LibraryService(library, mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn("Pinocchio");
+        libraryMenu = new LibraryMenu(mockPrintStream, mockBufferedReader);
+        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_BOOK.code(),"Pinocchio",QUIT.code());
 
-        libraryService.showOption(CHECKOUT_A_BOOK.code());
+        libraryMenu.show();
 
         verify(mockPrintStream).println("Sorry, that book is not available");
     }
 
     @Test
     public void shouldPrintSuccessMessageWhenUserReturnABook() throws IOException {
-        libraryService = new LibraryService(library, mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn("Clean Code");
+        libraryMenu = new LibraryMenu(mockPrintStream, mockBufferedReader);
+        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_BOOK.code(),"Clean Code",RETURN_BOOK.code(),"Clean Code",QUIT.code());
 
-        libraryService.showOption(CHECKOUT_A_BOOK.code());
-        libraryService.showOption(RETURN_A_BOOK.code());
+        libraryMenu.show();
 
         verify(mockPrintStream).println("Thank you for returning the book");
     }
 
     @Test
     public void shouldPrintUnsuccessfulMessageWhenUserTryToReturnAInvalidBook() throws IOException {
-        libraryService = new LibraryService(library, mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn("Pinocchio");
+        libraryMenu = new LibraryMenu(mockPrintStream, mockBufferedReader);
+        when(mockBufferedReader.readLine()).thenReturn(RETURN_BOOK.code(),"Pinocchio",QUIT.code());
 
-        libraryService.showOption(RETURN_A_BOOK.code());
+        libraryMenu.show();
 
         verify(mockPrintStream).println("This is not a valid book to return");
     }
