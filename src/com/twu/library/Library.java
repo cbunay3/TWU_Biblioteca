@@ -46,7 +46,12 @@ public class Library {
         }
     }
 
-
+    public void checkoutMovie(String name) {
+        Movie movie = searchMovie(name, movies);
+        if (movie != null) {
+            movies.remove(movie);
+        }
+    }
 
     public void returnBook(String title) {
         Book book = searchBook(title, borrowedBooks);
@@ -66,6 +71,12 @@ public class Library {
                 .orElse(null);
     }
 
+    private Movie searchMovie(String name, List<Movie> movies) {
+        return movies.stream()
+                .filter(movie -> movie.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
 
     private List<Book> createBooks() {
         List<Book> books = new ArrayList<>();
@@ -89,7 +100,4 @@ public class Library {
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
-
-
-
 }

@@ -164,5 +164,16 @@ public class LibraryTest {
         verify(mockPrintStream).print("");
     }
 
+    @Test
+    public void shouldNotPrintBorrowedMovies() {
+        library = new Library(mockPrintStream);
+
+        library.checkoutMovie("Jumper");
+        library.checkoutMovie("The Avengers");
+        library.listMovies();
+
+        verify(mockPrintStream).print(expectedMovieInfo());
+    }
+
 
 }

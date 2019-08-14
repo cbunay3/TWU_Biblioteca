@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d17569a4-3b41-43ba-a22b-05fbf815e502" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/twu/library/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/MenuOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/library/MenuOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/library/LibraryMenuTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,7 +63,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LibraryTest.shouldNotPrintBorrowedMovies">
+  <component name="RunManager" selected="JUnit.LibraryTest">
     <configuration name="LibraryMenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -174,9 +161,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LibraryTest" />
         <item itemvalue="JUnit.LibraryTest.shouldNotPrintBorrowedMovies" />
         <item itemvalue="JUnit.LibraryTest.shouldNotPrintNothingWhenThereIsNoMovies" />
-        <item itemvalue="JUnit.LibraryTest" />
         <item itemvalue="JUnit.LibraryTest.shouldPrintAvailableBooks" />
         <item itemvalue="JUnit.LibraryMenuTest" />
       </list>
