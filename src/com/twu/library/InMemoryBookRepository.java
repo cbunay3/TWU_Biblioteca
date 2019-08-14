@@ -12,11 +12,12 @@ public class InMemoryBookRepository implements BookRepository {
     {
         books.add(new Book("Head First Java", "Kathy Sierra", 2003));
         books.add(new Book("The Agile Samurai", "Jonathan Rasmusson", 2010));
+        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
     }
 
     List<Book> checkoutBooks = new ArrayList<>();
     {
-        checkoutBooks.add(new Book("Clean Code", "Robert C. Martin", 2008));
+        checkoutBooks.add(new Book("OOD", "Robert C. Martin", 2001));
     }
 
 
@@ -50,16 +51,16 @@ public class InMemoryBookRepository implements BookRepository {
                 .orElse(null);
     }
 
-    public Book findAvailableBook(String title){
+    public Book findAvailableBookByTitle(String title){
         return findBookByTitleOnAList(title, books);
     }
 
-    public Book findCheckoutBook(String title){
+    public Book findCheckoutBookByTitle(String title){
         return findBookByTitleOnAList(title, checkoutBooks);
     }
 
     public void checkoutBookByTitle(String title) {
-        Book book = findAvailableBook(title);
+        Book book = findAvailableBookByTitle(title);
         if (book != null) {
             checkoutBooks.add(book);
             checkoutUsers.add(Session.getCurrentSession().currentUser.getName());
@@ -71,12 +72,12 @@ public class InMemoryBookRepository implements BookRepository {
     }
 
     public void returnBookByTitle(String title){
-        Book book = findCheckoutBook(title);
+        Book book = findCheckoutBookByTitle(title);
         if (book != null) {
-            Integer bookIndex = checkoutBooks.indexOf(book);
+            Integer userIndex = checkoutBooks.indexOf(book);
             books.add(book);
             checkoutBooks.remove(book);
-            checkoutUsers.remove(bookIndex);
+            checkoutUsers.remove(userIndex);
             printStream.println("Thank you for returning the book");
         } else {
             printStream.println("This is not a valid book to return");

@@ -61,19 +61,19 @@ public class LibraryTest {
     @Test
     public void shouldPrintBooksInfoWhenUserListBooks() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(LIST_BOOKS.code(), QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",LIST_BOOKS.code(), QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
-        verify(mockPrintStream).print(expectedBooksInfo());
+        verify(mockPrintStream).print(expectedBooksInfo().toString());
     }
 
     @Test
     public void shouldPrintSuccessMessageWhenUserCheckoutABook() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_BOOK.code(),"Clean Code", QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",CHECKOUT_BOOK.code(),"Clean Code", QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
         verify(mockPrintStream).println("Thank you! Enjoy the book");
     }
@@ -81,9 +81,9 @@ public class LibraryTest {
     @Test
     public void shouldPrintUnsuccessfulMessageWhenUserTryToCheckoutAInvalidBook() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_BOOK.code(),"Pinocchio",QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",CHECKOUT_BOOK.code(),"Pinocchio",QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
         verify(mockPrintStream).println("Sorry, that book is not available");
     }
@@ -91,9 +91,9 @@ public class LibraryTest {
     @Test
     public void shouldPrintSuccessMessageWhenUserReturnABook() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_BOOK.code(),"Clean Code",RETURN_BOOK.code(),"Clean Code",QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",CHECKOUT_BOOK.code(),"Clean Code",RETURN_BOOK.code(),"Clean Code",QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
         verify(mockPrintStream).println("Thank you for returning the book");
     }
@@ -101,9 +101,9 @@ public class LibraryTest {
     @Test
     public void shouldPrintUnsuccessfulMessageWhenUserTryToReturnAInvalidBook() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(RETURN_BOOK.code(),"Pinocchio",QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",RETURN_BOOK.code(),"Pinocchio",QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
         verify(mockPrintStream).println("This is not a valid book to return");
     }
@@ -111,9 +111,9 @@ public class LibraryTest {
     @Test
     public void shouldPrintMoviesInfoWhenUserListMovies() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(LIST_MOVIES.code(), QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",LIST_MOVIES.code(), QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
         verify(mockPrintStream).print(expectedMoviesInfo());
     }
@@ -121,9 +121,9 @@ public class LibraryTest {
     @Test
     public void shouldCheckoutAMovie() throws IOException {
         library = new Library(bookRepository,movieRepository,mockBufferedReader);
-        when(mockBufferedReader.readLine()).thenReturn(CHECKOUT_MOVIE.code(),"Jumper", QUIT.code());
+        when(mockBufferedReader.readLine()).thenReturn("123-4567","12345",CHECKOUT_MOVIE.code(),"Jumper", QUIT.code());
 
-        library.showMenu();
+        library.authenticate();
 
         verify(mockPrintStream).println("Thank you! Enjoy the movie");
     }

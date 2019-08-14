@@ -19,7 +19,7 @@ public class Library {
         this.movieRepository = movieRepository;
     }
 
-    public void showMenu() {
+    private void showMenu() {
         String option = null;
         do {
             System.out.println("\n  Menu");
