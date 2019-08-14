@@ -2,8 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d17569a4-3b41-43ba-a22b-05fbf815e502" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryBookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryMovieRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/InMemoryUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/MovieRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthenticationFailureException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthenticationRequiredException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthorizationDeniedAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/AuthorizationFailedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/twu/library/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/twu/library/AuthenticationServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/twu/library/InMemoryBookRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/twu/library/InMemoryMovieRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/twu/library/InMemoryUserRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Library.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/LibraryOption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/library/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryMenuTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/library/LibraryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/library/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/LibraryOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/LibraryOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/library/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/library/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryMenuTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/library/LibraryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
@@ -41,14 +74,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.twu.library" />
       <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.twu.library" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.twu.library" />
+      <recent name="com.twu.library.authentication" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.twu.library" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -63,8 +103,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LibraryTest">
-    <configuration name="LibraryMenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.LibraryApp">
+    <configuration name="LibraryApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryApp" />
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryBookRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -73,7 +126,22 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.library" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryMenuTest" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.InMemoryBookRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryMovieRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.library.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.library" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.library.InMemoryMovieRepositoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,7 +162,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LibraryTest.shouldNotPrintBorrowedMovies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryTest.shouldCheckoutAMovie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
         <pattern>
@@ -104,39 +172,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.twu.library" />
       <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shouldNotPrintBorrowedMovies" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibraryTest.shouldNotPrintNothingWhenThereIsNoMovies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.library.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.library" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shouldNotPrintNothingWhenThereIsNoMovies" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibraryTest.shouldPrintAvailableBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="biblioteca" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.twu.library.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.twu.library" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.library.LibraryTest" />
-      <option name="METHOD_NAME" value="shouldPrintAvailableBooks" />
+      <option name="METHOD_NAME" value="shouldCheckoutAMovie" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LibraryApp" />
+        <item itemvalue="JUnit.LibraryTest.shouldCheckoutAMovie" />
         <item itemvalue="JUnit.LibraryTest" />
-        <item itemvalue="JUnit.LibraryTest.shouldNotPrintBorrowedMovies" />
-        <item itemvalue="JUnit.LibraryTest.shouldNotPrintNothingWhenThereIsNoMovies" />
-        <item itemvalue="JUnit.LibraryTest.shouldPrintAvailableBooks" />
-        <item itemvalue="JUnit.LibraryMenuTest" />
+        <item itemvalue="JUnit.InMemoryBookRepositoryTest" />
+        <item itemvalue="JUnit.InMemoryMovieRepositoryTest" />
       </list>
     </recent_temporary>
   </component>

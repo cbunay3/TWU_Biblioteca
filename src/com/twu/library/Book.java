@@ -2,21 +2,17 @@ package com.twu.library;
 
 public class Book {
 
-    private String title;
+    public String title;
     private String author;
-    private Integer year;
+    private Integer publicationYear;
 
-    public Book(String title, String author, Integer year) {
+    public Book(String title, String author, Integer publicationYear) {
         this.title = title;
         this.author = author;
-        this.year = year;
-    }
-
-    public String getTitle() {
-        return title;
+        this.publicationYear = publicationYear;
     }
 
     public String getInfo() {
-        return String.format("| %-25s | %-25s | %-17d |\n", title, author, year);
+        return String.format("| %-25s | %-25s | %-17d |\n", title, author, publicationYear);
     }
 }

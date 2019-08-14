@@ -1,103 +1,98 @@
 package com.twu.library;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
+
+import static com.twu.library.LibraryOption.*;
 
 public class Library {
 
-    private List<Book> books;
-    private List<Book> borrowedBooks;
-    private List<Movie> movies;
-    private PrintStream printStream;
+    private BufferedReader bufferedReader;
+    private BookRepository bookRepository;
+    private MovieRepository movieRepository;
+    private AuthenticationService authenticationService;
 
-
-    public Library(PrintStream printStream) {
-        this.books = createBooks();
-        this.printStream = printStream;
-        this.borrowedBooks = new ArrayList<>();
-        this.movies = createMovies();
+    Library(BookRepository bookRepository, MovieRepository movieRepository, BufferedReader bufferedReader) {
+        this.bufferedReader = bufferedReader;
+        this.bookRepository = bookRepository;
+        this.movieRepository = movieRepository;
     }
 
-    public void showWelcomeMessage() {
-        printStream.print("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!");
+    public void showMenu() {
+        String option = null;
+        do {
+            System.out.println("\n  Menu");
+            System.out.println("1.List Books");
+            System.out.println("2.Checkout a Book");
+            System.out.println("3.Return a Book");
+            System.out.println("4.List Movies");
+            System.out.println("5.Checkout a Movie");
+            System.out.println("6.List checked out books");
+            System.out.println("9.Quit Application");
+            System.out.println("Enter an option...");
+            option = readLine();
+            showOption(option);
+        } while (isNotQuitOption(option));
     }
 
-    public void listBooks() {
-        StringBuilder bookList = new StringBuilder();
-        books.forEach(book -> bookList.append(book.getInfo()));
-        printStream.print(bookList.toString());
+    private void showWelcomeMessage() {
+        System.out.println("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!\n");
     }
 
-    public void listMovies() {
-        StringBuilder moviesInfo = new StringBuilder();
-        movies.forEach(movie -> moviesInfo.append(movie.getInfo()));
-        printStream.print( moviesInfo.toString());
-    }
-
-    public void checkoutBook(String title) {
-        Book book = searchBook(title, books);
-        if (book != null) {
-            borrowedBooks.add(book);
-            books.remove(book);
-            printStream.println("Thank you! Enjoy the book");
-        } else {
-            printStream.println("Sorry, that book is not available");
+    private void showOption(String option) {
+        if (option.equals(LIST_BOOKS.code())) {
+            System.out.print(String.format("\n  %-25s   %-25s   %-17s\n\n", "TITLE", "AUTHOR", "PUBLICATION YEAR"));
+            bookRepository.listBooks();
+        } else if (option.equals(CHECKOUT_BOOK.code())) {
+            System.out.println("Enter book's title:");
+            String bookTitle = readLine();
+            bookRepository.checkoutBookByTitle(bookTitle);
+        } else if (option.equals(RETURN_BOOK.code())) {
+            System.out.println("Enter book's title:");
+            String bookTitle = readLine();
+            bookRepository.returnBookByTitle(bookTitle);
+        } else if (option.equals(LIST_MOVIES.code())) {
+            System.out.print(String.format("\n| %-23s | %-15s | %-23s | %-15s |\n\n", "NAME", "YEAR", "DIRECTOR", "RATING"));
+            movieRepository.listMovies();
+        } else if (option.equals(CHECKOUT_MOVIE.code())) {
+            System.out.println("Enter movie's title:");
+            String movieName = readLine();
+            movieRepository.checkoutMovieByName(movieName);
+        } else if (option.equals(BOOKS_CHECKED_OUT.code())) {
+            System.out.println(String.format("\n| %-25s | %-25s |\n","LIBRO","RESERVADO POR"));
+            bookRepository.listCheckoutBooks();
+        }else if (isNotQuitOption(option)) {
+            System.out.println("Please select a valid option!");
         }
     }
 
-    public void checkoutMovie(String name) {
-        Movie movie = searchMovie(name, movies);
-        if (movie != null) {
-            movies.remove(movie);
+    private boolean isNotQuitOption(String option) {
+        return !option.equals(QUIT.code());
+    }
+
+    private String readLine() {
+        try {
+            return bufferedReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
-    public void returnBook(String title) {
-        Book book = searchBook(title, borrowedBooks);
-        if (book != null) {
-            books.add(book);
-            borrowedBooks.remove(book);
-            printStream.println("Thank you for returning the book");
-        } else {
-            printStream.println("This is not a valid book to return");
+    public void authenticate() {
+        System.out.println("Welcome to Biblioteca. Your one-stop/shop for great good titles in Bangalore!\n");
+        System.out.println("LOGIN");
+        System.out.println("Enter your library number:");
+        String libraryNumber = readLine();
+        System.out.println("Enter your password:");
+        String password = readLine();
+        UserRepository userRepository = new InMemoryUserRepository();
+        authenticationService = new AuthenticationService(userRepository);
+        authenticationService.login(libraryNumber, password);
+        Session userSesion = Session.getCurrentSession();
+        if (userSesion.currentUser != null) {
+            showMenu();
         }
-    }
-
-    private Book searchBook(String title, List<Book> books) {
-        return books.stream()
-                .filter(book -> book.getTitle().equals(title))
-                .findFirst()
-                .orElse(null);
-    }
-
-    private Movie searchMovie(String name, List<Movie> movies) {
-        return movies.stream()
-                .filter(movie -> movie.getName().equals(name))
-                .findFirst()
-                .orElse(null);
-    }
-
-    private List<Book> createBooks() {
-        List<Book> books = new ArrayList<>();
-        books.add(new Book("Head First Java", "Kathy Sierra", 2003));
-        books.add(new Book("The Agile Samurai", "Jonathan Rasmusson", 2010));
-        books.add(new Book("Clean Code", "Robert C. Martin", 2008));
-        return books;
-    }
-
-    public List<Movie> createMovies() {
-        List<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("The Lion King", 2019, "Jon Favreau", "9"));
-        movies.add(new Movie("Jumper", 2008, "Doug Liman", "5"));
-        movies.add(new Movie("The Avengers", 2012, "Joss Whedon", "9"));
-        return movies;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
     }
 }
