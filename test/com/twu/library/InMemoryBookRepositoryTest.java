@@ -19,6 +19,8 @@ public class InMemoryBookRepositoryTest {
     @Before
     public void setUp() {
         mockPrintStream = mock(PrintStream.class);
+        Session.getCurrentSession().currentUser = new User("Carlos", "carlos@gmail.com","423222", "123-4567","12345");
+
     }
 
     @Test
@@ -26,7 +28,7 @@ public class InMemoryBookRepositoryTest {
         String title = "Clean Code";
         BookRepository bookRepository = new InMemoryBookRepository(mockPrintStream);
 
-        Book book = bookRepository.findAvailableBook(title);
+        Book book = bookRepository.findAvailableBookByTitle(title);
 
         assertThat(book.title, is("Clean Code"));
     }
@@ -36,7 +38,7 @@ public class InMemoryBookRepositoryTest {
         String title = "Pinocchio";
         BookRepository bookRepository = new InMemoryBookRepository(mockPrintStream);
 
-        Book book = bookRepository.findAvailableBook(title);
+        Book book = bookRepository.findAvailableBookByTitle(title);
 
         assertThat(book,is(nullValue()));
     }
