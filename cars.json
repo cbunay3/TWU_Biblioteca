@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "cars": [
+    {
+      "id": 1,
+      "model": "Corbet",
+      "year": 2012,
+      "brand": "Toyota"
+    },
+    {
+      "id": 2,
+      "model": "Sedan",
+      "year": 2019,
+      "brand": "Audi"
+    },
+    {
+      "id": 3,
+      "model": "Jetta",
+      "year": 2011,
+      "brand": "Volkswagen"
+    },
+    {
+      "id": 4,
+      "model": "Huracan",
+      "year": 2011,
+      "brand": "Lamborghini"
+    },
+    {
+      "id": 5,
+      "model": "Aperta",
+      "year": 2011,
+      "brand": "Ferrari"
+    }
+  ]
+}
